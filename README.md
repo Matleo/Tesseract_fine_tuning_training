@@ -25,7 +25,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     ...
     python create_box_file.py "../assets/mullerData_training/v2" 2
     ```
-3. Copy the tif/box files to your ubuntu filesystem and combine them. The file pairs aren't directly being fed to tesseract, but rather combined to a .lstmf file. Navigate to the directory with all the tif/box pairs and run the following command (you might need to be in "su -i" mode):
+3. Copy all tif/box files to your ubuntu filesystem (all pairs into one folder) and combine then them. The file pairs aren't directly being fed to tesseract, but rather combined to a .lstmf file. Navigate to the directory with all the tif/box pairs and run the following command (you might need to be in "su -i" mode):
     ```
     for file in *.tif; do
       echo $file
