@@ -47,7 +47,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     head -n  10 all-lstmf.txt > list_test.txt
     tail -n +11 all-lstmf.txt > list_train.txt
     ```
-5) **Extract the trained base lstm** neural network from the standard Tesseract. This lstm will be used as a starting point for our training.
+5) **Extract the trained base lstm** neural network from the standard Tesseract. This lstm will be used as a starting point for our training. You can find the `tessdata` directory per default under `/usr/share/tesseract-ocr/4.00/tessdata/` or by using `find / tessdata -ls`
     ```
     tesseract-ocr/src/training/combine_tessdata -e tessdata/deu.traineddata somepath/deu.lstm
     ```
@@ -72,7 +72,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
      --traineddata tesseract-ocr/tessdata/deu.traineddata \
      --model_output somepath/myModel.traineddata
      ```
-     This traineddata file can now be used to make predictions with tesseract, after it was put into the tessdata directory (this directory is located at: `echo $TESSDATA_PREFIX`).
+     This traineddata file can now be used to make predictions with tesseract, after it was put into the tessdata directory.
 9) Now you can start **using your fine tuned model to produce output** for a full test image. Passing the  `hocr` flag tells tesseract to not only output the text, but more detailed information about the bounding boxes aswell. For best results, preprocessing the receipt image to reduce background noise was found to be effektive.
     ```
     tesseract tx_01.preprocessed.jpeg tx_01.preprocessed -l myModel hocr
