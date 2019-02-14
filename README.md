@@ -14,6 +14,8 @@ Training Tesseract is not possible on windows machines at this point, so I worke
     
     sudo apt install tesseract-ocr
     sudo apt install libtesseract-dev 
+    
+    sudo apt install tesseract-ocr-deu
     ```
 2) **Create Training Data**, as described [here](https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00#building-the-training-tools). Tesseract Training is based on <name>.tif/<name>.box file pairs, where the tif file is the image of a line and the box file contains its String content and the bounding box. The box file needs to consists of a number of lines, where each line follows the convention of:
     <symbol> <left> <bottom> <right> <top> <page>
