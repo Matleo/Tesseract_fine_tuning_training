@@ -6,7 +6,15 @@ As Tesseract trains on line-data, I manually cropped some of the important lines
 Training Tesseract is not possible on windows machines at this point, so I worked with the Ubuntu shell for windows. (They recently patched a possibility to train on Windows aswell)
 
 ## Workflow
-1) Install Tesseract, following [these](https://github.com/tesseract-ocr/tesseract/wiki/Compiling) instructions (I built from [source](https://github.com/tesseract-ocr/tesseract/wiki/Compiling-%E2%80%93-GitInstallation), but apt packages are now available). Make sure to also install the needed (probably only german) language packages.
+1) Install Tesseract, following [these](https://github.com/tesseract-ocr/tesseract/wiki/Compiling) instructions (I built from [source](https://github.com/tesseract-ocr/tesseract/wiki/Compiling-%E2%80%93-GitInstallation), but apt packages are now available). Make sure to also install the needed (probably only german) language packages. You might need to add the apt repository before installing:
+
+    ```
+    sudo add-apt-repository ppa:alex-p/tesseract-ocr
+    sudo apt-get update
+    
+    sudo apt install tesseract-ocr
+    sudo apt install libtesseract-dev 
+    ```
 2) Create Training Data, as described [here](https://github.com/tesseract-ocr/tesseract/wiki/TrainingTesseract-4.00#building-the-training-tools). Tesseract Training is based on <name>.tif/<name>.box file pairs, where the tif file is the image of a line and the box file contains its String content and the bounding box. The box file needs to consists of a number of lines, where each line follows the convention of:
     <symbol> <left> <bottom> <right> <top> <page>
 Where <symbol> is a character and <left><bottom><right><top> describe the bounding box of the line. Pay attention, that the tesseract bouding box starts with (0,0) in the bottom left corner. You can find examples of thes file pairs in the assets\mullerData_training\v2 folder. 
