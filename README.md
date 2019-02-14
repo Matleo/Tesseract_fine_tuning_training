@@ -40,7 +40,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     Note: I did not use the plain line images for the training process, but performed an image preprocessing to them and fed those "cleaner" images to the training. It seemed like blurring gave the overall best results, but i didn't quantify the results properly. Some kind of binarization might work very well, as the base training data for Tesseract was artificially created and does not contain any grey noise in the background.
 4) **Create an `all-lstmf.txt` file**. This file just contains the locations of the lstmf files that you want to use.
     ```
-    ls -1 *.lstmf | sort -R > all-lstmf.txt
+    ls -1 $PWD/*.lstmf | sort -R > all-lstmf.txt
     ```
     Afterwards might want to split the data into a training and testing set afterwards, to quantify how good your fine tuned model is:
     ```
@@ -51,7 +51,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     ```
     tesseract-ocr/src/training/combine_tessdata -e tessdata/deu.traineddata somepath/deu.lstm
     ```
-6) **Start the actual training process** from within the directory, where the list_train.txt and all the .lstmf files are located.
+6) **Start the actual training process**
     ```
     tesseract-ocr/src/training/lstmtraining --model_output somepath/myModel \
       --continue_from somepath/deu.lstm \
