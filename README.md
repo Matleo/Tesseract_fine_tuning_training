@@ -47,7 +47,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     ```
 5) **Extract the trained base lstm** neural network from the standard Tesseract. This lstm will be used as a starting point for our training.
     ```
-    tesseract-ocr/src/training/combine_tessdata -e tessdata/deu.traineddata ~/somepath/deu.lstm
+    tesseract-ocr/src/training/combine_tessdata -e tessdata/deu.traineddata somepath/deu.lstm
     ```
 6) **Start the actual training process**
     ```
