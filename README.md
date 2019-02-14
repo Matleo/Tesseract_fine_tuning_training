@@ -3,10 +3,10 @@
 This Project was developed by Matthias Leopold for the [RFND AG](http://rfnd.com/).
 I was trying to teach [Tesseract](https://github.com/tesseract-ocr/tesseract) to better recognize our scanned Receipts in order to automatically read the VATs.
 As Tesseract trains on line-data, I manually cropped some of the important lines from our receipts and labeled them.
-Training Tesseract is not possible on windows machines at this point, so I worked with the Ubuntu shell for windows. (They recently patched a possibility to train on Windows aswell)
+Training Tesseract is not possible on windows machines at this point, so I worked with the Ubuntu shell for windows. (They recently patched a possibility to train on Windows aswell). You can work with any Linux System.
 
 ## Workflow
-1) **Install Tesseract**, following [these](https://github.com/tesseract-ocr/tesseract/wiki/Compiling) instructions (I built from [source](https://github.com/tesseract-ocr/tesseract/wiki/Compiling-%E2%80%93-GitInstallation), but apt packages are now available). Make sure to also install the needed (probably only german) language packages. You might need to add the apt repository before installing:
+1) **Install Tesseract** onto your Linux System, following [these](https://github.com/tesseract-ocr/tesseract/wiki/Compiling) instructions (I built from [source](https://github.com/tesseract-ocr/tesseract/wiki/Compiling-%E2%80%93-GitInstallation), but apt packages are now available). Make sure to also install the needed (probably only german) language packages. You might need to add the apt repository before installing:
 
     ```
     sudo add-apt-repository ppa:alex-p/tesseract-ocr
@@ -25,6 +25,7 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     ...
     python create_box_file.py "../assets/mullerData_training/v2" 2
     ```
+    You will need the python dependencies for `numpy`, `opencv` and `pillow`
 3. **Copy all tif/box files** to your ubuntu filesystem (all pairs into one folder) and then **combine them**. The file pairs aren't directly being fed to tesseract, but rather combined to a .lstmf file. Navigate to the directory with all the tif/box pairs and run the following command (you might need to be in "su -i" mode):
     ```
     for file in *.tif; do
