@@ -51,12 +51,12 @@ Where <symbol> is a character and <left><bottom><right><top> describe the boundi
     ```
     tesseract-ocr/src/training/combine_tessdata -e tessdata/deu.traineddata somepath/deu.lstm
     ```
-6) **Start the actual training process**
+6) **Start the actual training process** from within the directory, where the list_train.txt and all the .lstmf files are located.
     ```
     tesseract-ocr/src/training/lstmtraining --model_output somepath/myModel \
       --continue_from somepath/deu.lstm \
       --traineddata tesseract-ocr/tessdata/deu.traineddata \
-      --train_listfile somepath/list_train.txt \
+      --train_listfile list_train.txt \
       --max_iterations 400
     ```
 7) Afterwards you can **evaluate**, how good your new model ist. Compare this to the performance of the base model aswell:
