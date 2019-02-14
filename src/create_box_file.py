@@ -90,9 +90,9 @@ def main(tx_folders, option):
             preprocess_images(tx_folder)
 if __name__ == "__main__":
     baseDir = "../assets/mullerData_training/v1"
-    option = 3
+    option = 1
     if len(sys.argv) == 3:
         baseDir = sys.argv[1]
         option = sys.argv[2]
     tx_folders = glob.glob(baseDir + "/*/")
-    main(tx_folders, option)
+    main(tx_folders, int(option))
